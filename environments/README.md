@@ -51,10 +51,10 @@ E' anche possibile:
 * [developer](developer/)
   per la compilazione e l'assemblaggio (build) dei progetti definiti nella cartella [projects/](../projects/) del repository 
 
-<!---
 * [standalone](standalone/)
-  per l'esecuzione di applicazioni Java non distribuite   
+  l'ambiente più semplice, per l'esecuzione di applicazioni Java non distribuite 
 
+<!---
 * [client-server](client-server/) 
   per l'esecuzione di applicazioni Java distribuite di tipo client-server 
 
