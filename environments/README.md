@@ -49,8 +49,7 @@ E' anche possibile:
 ## Ambienti 
 
 * [developer](developer/)
-  per la compilazione e l'assemblaggio (build) dei progetti  
-  definiti nella cartella [projects/](../projects/) del repository 
+  per la compilazione e l'assemblaggio (build) dei progetti definiti nella cartella [projects/](../projects/) del repository 
 
 <!---
 * [standalone](standalone/)
