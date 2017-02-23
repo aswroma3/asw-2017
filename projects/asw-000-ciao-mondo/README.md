@@ -30,11 +30,11 @@ Per eseguire l'applicazione **ciao-mondo**:
 
 1. posizionarsi nella cartella principale dell'applicazione 
 
+2. eseguire lo script `../run-ciao-mondo.sh` 
+
+In alternativa, se si è sul nodo **dev** dell'ambiente [developer](../../environments/developer/): 
+
 2. usare il comando `gradle run` 
-
-In alternativa: 
-
-2bis. eseguire lo script `../run-ciao-mondo.sh` 
 
 
 
