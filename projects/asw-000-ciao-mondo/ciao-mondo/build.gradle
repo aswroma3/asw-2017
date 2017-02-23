@@ -1,0 +1,28 @@
+/* 
+ * Gradle build file per una semplice applicazione Java. 
+ * 
+ * - gradle build compila, crea i jar e prepara la distribuzione 
+ * - gradle run manda in esecuzione l'applicazione 
+ * - gradle clean cancella i jar file e la distribuzione 
+ */ 
+ 
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'asw.ciaomondo.main.Main'
+    }
+}
+
+apply plugin: 'application'     
+mainClassName = "asw.ciaomondo.main.Main"
+
+
