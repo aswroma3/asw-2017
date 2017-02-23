@@ -19,10 +19,10 @@ che dopo la costruzione è presente nella cartella **build/libs** dell'applicazio
 
 ## Ambiente di esecuzione 
 
-Per semplicità, l'applicazione **ciao-mondo** può essere eseguita 
-direttamente nell'ambiente 
-[developer](../../environments/developer/), 
-sul nodo **dev**. 
+L'applicazione **ciao-mondo** può essere eseguita nell'ambiente 
+[standalone](../../environments/standalone/), sul nodo **node**, 
+oppure direttamente nell'ambiente 
+[developer](../../environments/developer/), sul nodo **dev**. 
 
 ## Esecuzione 
 
