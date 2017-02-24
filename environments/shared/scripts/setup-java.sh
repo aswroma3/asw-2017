@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "/home/${VAGRANT_USER}/shared/scripts/common.sh"
+source "/home/vagrant/shared/scripts/common.sh"
 
 # set up Java constants 
 JAVA_VERSION=8
@@ -21,7 +21,7 @@ function installLocalJava {
 	echo "====================="
 	echo "installing oracle jdk"
 	echo "====================="
-	FILE=${ASW_SHARED_DOWNLOADS}/$JAVA_ARCHIVE
+	FILE=${VAGRANT_DOWNLOADS}/$JAVA_ARCHIVE
 	tar -xzf $FILE -C /usr/local
 }
 
@@ -29,7 +29,7 @@ function installRemoteJava {
 	echo "======================"
 	echo "downloading oracle jdk"
 	echo "======================"
-	wget -nv -P ${ASW_SHARED_DOWNLOADS} --header "Cookie: oraclelicense=accept-securebackup-cookie;" "${GET_JAVA_URL}/${JAVA_ARCHIVE}" 
+	wget -nv -P ${VAGRANT_DOWNLOADS} --header "Cookie: oraclelicense=accept-securebackup-cookie;" "${GET_JAVA_URL}/${JAVA_ARCHIVE}" 
 	installLocalJava 
 }
 

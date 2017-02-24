@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "/home/${VAGRANT_USER}/shared/scripts/common.sh"
+source "/home/vagrant/shared/scripts/common.sh"
 
 # set up Gradle constants 
 GRADLE_VERSION=3.4
@@ -15,7 +15,7 @@ function installLocalGradle {
 	echo "================="
 	echo "installing gradle"
 	echo "================="
-	FILE=${ASW_SHARED_DOWNLOADS}/$GRADLE_ARCHIVE
+	FILE=${VAGRANT_DOWNLOADS}/$GRADLE_ARCHIVE
 	unzip -q $FILE -d /usr/local
 }
 
@@ -23,7 +23,7 @@ function installRemoteGradle {
 	echo "=================="
 	echo "downloading gradle"
 	echo "=================="
-	wget -q -P ${ASW_SHARED_DOWNLOADS} ${GET_GRADLE_URL}/${GRADLE_ARCHIVE} 
+	wget -q -P ${VAGRANT_DOWNLOADS} ${GET_GRADLE_URL}/${GRADLE_ARCHIVE} 
 	installLocalGradle
 }
 

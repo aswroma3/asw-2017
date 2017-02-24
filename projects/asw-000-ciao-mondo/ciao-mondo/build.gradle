@@ -16,13 +16,15 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+ext.mainClass = 'asw.ciaomondo.CiaoMondo'
+
 jar {
     manifest {
-        attributes 'Main-Class': 'asw.ciaomondo.main.Main'
+        attributes 'Main-Class': mainClass
     }
 }
 
 apply plugin: 'application'     
-mainClassName = "asw.ciaomondo.main.Main"
+mainClassName = mainClass
 
 

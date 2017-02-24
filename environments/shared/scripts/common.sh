@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# l'utente Vagrant di default e' ${VAGRANT_USER} - di solito vagrant, ma talvolta ubuntu 
+# VAGRANT_USER è l'utente Vagrant di default che di solito, convenzionalmente, e' vagrant 
+VAGRANT_USER=vagrant 
 
-ASW_SHARED_RESOURCES=/home/${VAGRANT_USER}/shared/resources
-ASW_SHARED_DOWNLOADS=/home/${VAGRANT_USER}/shared/downloads
+# dove vengono montate le risorse e i download condivisi 
+VAGRANT_RESOURCES=/home/${VAGRANT_USER}/shared/resources
+VAGRANT_DOWNLOADS=/home/${VAGRANT_USER}/shared/downloads
 
 function resourceExists {
-	FILE=${ASW_SHARED_RESOURCES}/$1
+	FILE=${VAGRANT_RESOURCES}/$1
 	if [ -e $FILE ]
 	then
 		return 0
@@ -16,7 +18,7 @@ function resourceExists {
 }
 
 function downloadExists {
-	FILE=${ASW_SHARED_DOWNLOADS}/$1
+	FILE=${VAGRANT_DOWNLOADS}/$1
 	if [ -e $FILE ]
 	then
 		return 0

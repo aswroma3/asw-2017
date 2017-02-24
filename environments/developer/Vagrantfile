@@ -6,24 +6,21 @@
 
 VAGRANTFILE_API_VERSION = "2"
 
-# utente di default per Ubuntu trusty 64 VirtualBox
-vagrant_user = "vagrant" 
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Configurazioni comuni.
 
-    # Ubuntu trusty 64 VirtualBox.
+    # Ubuntu Trusty (14.04 LTS) 64 bit VirtualBox.
     config.vm.box = "ubuntu/trusty64"
     # config.vm.box_url = "http://files.vagrantup.com/ubuntu/trusty64.box"
 
     # folder per i progetti Asw (/home/vagrant/projects)
-    config.vm.synced_folder "../../projects/", "/home/#{vagrant_user}/projects", :mount_options => ["dmode=777", "fmode=777"]
+    config.vm.synced_folder "../../projects/", "/home/vagrant/projects", :mount_options => ["dmode=777", "fmode=777"]
 
     # folder per le risorse condivise per gli ambienti Asw (/home/vagrant/shared/resources e /home/vagrant/shared/scripts) 
-    config.vm.synced_folder "../shared/", "/home/#{vagrant_user}/shared", :mount_options => ["dmode=777", "fmode=777"]
+    config.vm.synced_folder "../shared/", "/home/vagrant/shared", :mount_options => ["dmode=777", "fmode=777"]
 
     # folder per i progetti docker Asw (/home/vagrant/docker)
-    # config.vm.synced_folder "../../docker/", "/home/#{vagrant_user}/docker", :mount_options => ["dmode=777", "fmode=777"]
+    # config.vm.synced_folder "../../docker/", "/home/vagrant/docker", :mount_options => ["dmode=777", "fmode=777"]
 
     #
     # Configurazione del nodo "dev", che prevede: 
@@ -52,9 +49,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         # provisioning con bash 
         node.vm.provision :shell, :inline => 'apt-get update'
-        node.vm.provision :shell, env: {"VAGRANT_USER" => "#{vagrant_user}"}, path: "../shared/scripts/setup-java.sh"
-        node.vm.provision :shell, env: {"VAGRANT_USER" => "#{vagrant_user}"}, path: "../shared/scripts/setup-gradle.sh"
-        node.vm.provision :shell, env: {"VAGRANT_USER" => "#{vagrant_user}"}, path: "../shared/scripts/setup-maven.sh"
+        node.vm.provision :shell, path: "../shared/scripts/setup-java.sh"
+        node.vm.provision :shell, path: "../shared/scripts/setup-gradle.sh"
+        node.vm.provision :shell, path: "../shared/scripts/setup-maven.sh"
   
         node.vm.provision :shell, 
             inline: "echo  'configurazione nodo developer completata'"

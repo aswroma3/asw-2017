@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "/home/${VAGRANT_USER}/shared/scripts/common.sh"
+source "/home/vagrant/shared/scripts/common.sh"
 
 # set up Maven constants 
 MAVEN_VERSION=3.3.9
@@ -16,7 +16,7 @@ function installLocalMaven {
 	echo "================="
 	echo "installing maven"
 	echo "================="
-	FILE=${ASW_SHARED_DOWNLOADS}/$MAVEN_ARCHIVE
+	FILE=${VAGRANT_DOWNLOADS}/$MAVEN_ARCHIVE
 	unzip -q $FILE -d /usr/local
 }
 
@@ -24,7 +24,7 @@ function installRemoteMaven {
 	echo "=================="
 	echo "downloading maven"
 	echo "=================="
-	wget -q -P ${ASW_SHARED_DOWNLOADS} ${GET_MAVEN_URL}/${MAVEN_ARCHIVE} 
+	wget -q -P ${VAGRANT_DOWNLOADS} ${GET_MAVEN_URL}/${MAVEN_ARCHIVE} 
 	installLocalMaven
 }
 

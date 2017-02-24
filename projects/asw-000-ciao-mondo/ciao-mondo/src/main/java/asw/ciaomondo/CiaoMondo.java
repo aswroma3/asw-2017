@@ -1,6 +1,6 @@
-package asw.ciaomondo.main;
+package asw.ciaomondo;
 
-public class Main {
+public class CiaoMondo {
 
 	public static void main(String[] args) {
 		System.out.println("Ciao, mondo!");
