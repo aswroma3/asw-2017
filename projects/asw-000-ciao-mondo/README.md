@@ -8,7 +8,7 @@ che non è un'applicazione distribuita.
 Per la costruzione dell'applicazione, vedere anche le istruzioni 
 descritta nella sezione [projects/](../): 
 
-1. posizionarsi nella cartella principale dell'applicazione 
+1. posizionarsi nella cartella principale dell'applicazione - che in questo caso è `~/projects/asw-000-ciao-mondo/ciao-mondo`
 
 2. usare il comando `gradle build`  
 
@@ -28,9 +28,9 @@ oppure direttamente nell'ambiente
 
 Per eseguire l'applicazione **ciao-mondo**: 
 
-1. posizionarsi nella cartella principale dell'applicazione 
+1. posizionarsi nella cartella principale dell'applicazione `~/projects/asw-000-ciao-mondo/ciao-mondo`
 
-2. eseguire lo script `../run-ciao-mondo.sh` 
+2. eseguire lo script `./run-ciao-mondo.sh` 
 
 In alternativa, se si è sul nodo **dev** dell'ambiente [developer](../../environments/developer/): 
 
