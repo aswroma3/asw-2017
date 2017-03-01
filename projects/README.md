@@ -77,9 +77,9 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-000-ciao-mondo](asw-000-ciao-mondo/): un semplice progetto di prova 
 
-<!---
 * [asw-810-introduzione](asw-810-introduzione/): introduzione ai connettori  
 
+<!---
 * [asw-820-socket](asw-820-socket/): comunicazione interprocesso e socket  
 
 * [asw-830-rmi](asw-830-rmi/): oggetti distribuiti e invocazione remota 

@@ -54,10 +54,10 @@ E' anche possibile:
 * [standalone](standalone/)
   l'ambiente più semplice, per l'esecuzione di applicazioni Java non distribuite 
 
-<!---
 * [client-server](client-server/) 
   per l'esecuzione di applicazioni Java distribuite di tipo client-server 
 
+<!---
 * [java-ee](java-ee/) 
   per l'esecuzione di applicazioni Java EE con l'application server *GlassFish*  
   
