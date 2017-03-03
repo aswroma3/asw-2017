@@ -95,6 +95,7 @@ task copyServerLibFiles(type: Copy) {
     }
 }
 
+// copia nella cartella dist le altre risorse (script e file di configurazione) 
 task copyServerResources(type: Copy) {
     from 'resources/server' 
     into 'dist/server'
