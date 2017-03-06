@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         node.vm.provider "virtualbox" do |v| 
             # queste risorse dovrebbero bastare nella maggior parte dei casi
-			v.memory = 2048 
+			v.memory = 1536 
 			v.cpus = 1
 			# tranne il caso in cui si vogliono lanciare piu' applicazioni Spring 
             # v.memory = 4096 
