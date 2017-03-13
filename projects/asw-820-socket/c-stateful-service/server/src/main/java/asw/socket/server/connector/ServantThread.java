@@ -27,11 +27,11 @@ public class ServantThread extends Thread {
 	public ServantThread(Socket clientSocket, CounterService service) {
 		try {
 			this.clientSocket = clientSocket;
-			in = new DataInputStream(clientSocket.getInputStream());
-			out = new DataOutputStream(clientSocket.getOutputStream());
 			this.service = service;
 			this.servantThreadId = MAX_SERVANT_THREAD_ID++;
-			this.start();    // esegue run() in un nuovo thread
+			/* potrebbero anche andare all'inizio del metodo run */ 
+			in = new DataInputStream(clientSocket.getInputStream());
+			out = new DataOutputStream(clientSocket.getOutputStream());
 		} catch (IOException e) {
 			logger.info("Server Proxy: IO Exception: " + e.getMessage());
 		}

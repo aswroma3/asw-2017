@@ -25,9 +25,9 @@ public class ServantThread extends Thread {
 			this.clientSocket = clientSocket;
 			this.service = service;
 			this.servantThreadId = MAX_SERVANT_THREAD_ID++;
+			/* potrebbero anche andare all'inizio del metodo run */ 
 			in = new DataInputStream(clientSocket.getInputStream());
 			out = new DataOutputStream(clientSocket.getOutputStream());
-			this.start();    // esegue run() in un nuovo thread
 		} catch (IOException e) {
 			logger.info("Server Proxy: IO Exception: " + e.getMessage());
 		}

@@ -30,8 +30,10 @@ public class ServiceServerTCPProxy {
             while (true) {
                 /* aspetta/accetta una richiesta - crea il relativa socket */
 				Socket clientSocket = listenSocket.accept();    // bloccante
-				/* la richiesta sara' gestita in un nuovo thread, separato */
+				/* la richiesta sara' gestita in un nuovo popup thread, separato: 
+ 				 * crea e avvia il nuovo thread */
 				ServantThread thread = new ServantThread(clientSocket, service);
+				thread.start(); 
             }
 		} catch (IOException e) {
 			logger.info("Server Proxy: IO Exception: " + e.getMessage());
