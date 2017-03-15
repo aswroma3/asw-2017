@@ -45,13 +45,13 @@ oppure direttamente nell'ambiente
 
 Per eseguire un'applicazione: 
 
-1. posizionarsi nella cartella **dist** dell'applicazione 
+1. posizionarsi nella cartella **dist** dell'applicazione - ad esempio `~/projects/asw-810-introduzione/a-chiamata-locale/dist`
 
 2. eseguire lo script `../run-app.sh` 
 
 In alternativa: 
 
-1. posizionarsi nella cartella principale dell'applicazione 
+1. posizionarsi nella cartella principale dell'applicazione - ad esempio `~/projects/asw-810-introduzione/a-chiamata-locale`
 
 2. eseguire lo script `dist/run-app.sh` oppure usare il comando `gradle run` 
 
@@ -83,7 +83,7 @@ Per eseguire questa applicazione si proceda in questo modo:
 
 1. sul nodo **server** 
 
-   a. posizionarsi nella cartella principale dell'applicazione 
+   a. posizionarsi nella cartella principale dell'applicazione - in questo caso, `~/projects/asw-810-introduzione/g-client-server`
 
    b. eseguire lo script `dist/server/run-server.sh` 
    
@@ -91,7 +91,7 @@ Per eseguire questa applicazione si proceda in questo modo:
 
 2. sul nodo **client** 
 
-   a. posizionarsi nella cartella principale dell'applicazione 
+   a. posizionarsi nella cartella principale dell'applicazione - in questo caso, `~/projects/asw-810-introduzione/g-client-server`
 
    b. eseguire lo script `dist/client/run-client.sh 10.11.1.101` oppure `dist/client/run-client.sh server` (`10.11.1.101` è l'indirizzo IP del nodo **server**) 
 

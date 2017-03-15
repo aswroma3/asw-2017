@@ -45,7 +45,7 @@ Per eseguire un'applicazione si proceda in questo modo:
 
 1. sul nodo **server** 
 
-   a. posizionarsi nella cartella principale dell'applicazione 
+   a. posizionarsi nella cartella principale dell'applicazione - ad esempio `~/projects/asw-820-socket/a-client-server-udp`
 
    b. eseguire lo script `dist/server/run-server.sh` 
    
@@ -53,7 +53,7 @@ Per eseguire un'applicazione si proceda in questo modo:
 
 2. sul nodo **client** 
 
-   a. posizionarsi nella cartella principale dell'applicazione 
+   a. posizionarsi nella cartella principale dell'applicazione - ad esempio `~/projects/asw-820-socket/a-client-server-udp`
 
    b. eseguire lo script `dist/client/run-client.sh` 
 
