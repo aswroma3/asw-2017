@@ -33,9 +33,9 @@ subprojects {
 
 project(':app') {
     dependencies {
-        compile 'org.springframework:spring-context:4.3.6.RELEASE'
-        runtime 'org.springframework:spring-context:4.3.6.RELEASE'
-        archives 'org.springframework:spring-context:4.3.6.RELEASE'
+        compile 'org.springframework:spring-context:4.3.7.RELEASE'
+        runtime 'org.springframework:spring-context:4.3.7.RELEASE'
+        archives 'org.springframework:spring-context:4.3.7.RELEASE'
     }
 
     jar {

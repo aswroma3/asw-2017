@@ -24,8 +24,8 @@ apply plugin: 'application'
 mainClassName = "asw.spring.show.Main"
 
 dependencies {
-    compile 'org.springframework:spring-context:4.3.6.RELEASE'
+    compile 'org.springframework:spring-context:4.3.7.RELEASE'
     testCompile 'junit:junit:4.12'
-    runtime 'org.springframework:spring-context:4.3.6.RELEASE'
+    runtime 'org.springframework:spring-context:4.3.7.RELEASE'
 }
 
