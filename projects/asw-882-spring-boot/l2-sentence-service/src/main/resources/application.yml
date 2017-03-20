@@ -1,0 +1,11 @@
+# application.yml 
+--- 
+spring: 
+  application: 
+    name: sentence
+word: 
+  subject.uri: http://localhost:8081 
+  verb.uri: http://localhost:8082 
+  object.uri: http://localhost:8083 
+server:
+  port: 8080

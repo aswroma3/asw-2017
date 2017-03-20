@@ -1,0 +1,35 @@
+# application.yml
+--- 
+spring: 
+  application: 
+    name: test
+server: 
+  port: ${PORT:${SERVER_PORT:0}}
+words: to,pass,the,test
+
+--- 
+spring: 
+  profiles: subject
+  application: 
+    name: subject
+words: He,She,Mary,John,Paul
+server: 
+  port: 8081
+  
+--- 
+spring: 
+  profiles: verb
+  application: 
+    name: verb
+words: likes,loves,hates,dreams
+server: 
+  port: 8082
+  
+--- 
+spring: 
+  profiles: object
+  application: 
+    name: object
+words: beans,cats,dogs,pasta,pizza,spring
+server: 
+  port: 8083
