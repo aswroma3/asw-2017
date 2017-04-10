@@ -15,7 +15,7 @@ La macchina virtuale **node** ha il seguente software
   
 Configurazione di rete 
 
-* Indirizzo IP: 10.11.1.211 
+* Indirizzo IP: 10.11.1.251 
 
 * Porte pubblicate sull'host: nessuna 
 

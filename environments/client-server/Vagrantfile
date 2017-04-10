@@ -1,5 +1,5 @@
 # 
-# Vagrantfile per i progetti client-server (per esempio, i progetti asw-820-socket e asw-830-rmi), che prevedono:
+# Vagrantfile per i progetti client-server (per esempio, i progetti asw-820-socket e asw-830-java-rmi), che prevedono:
 # - un nodo server 
 # - un nodo client 
 # 

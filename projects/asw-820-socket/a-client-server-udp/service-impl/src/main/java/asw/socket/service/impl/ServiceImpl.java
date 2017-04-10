@@ -52,7 +52,7 @@ public class ServiceImpl implements Service {
     }
 
 	/* Introduce un ritardo di esattamente delay millisecondi. */
-	public static void sleep(int delay) {
+	private static void sleep(int delay) {
         try {
         	// int delay = (int)(Math.random()*maxDelay);
             Thread.sleep(delay);

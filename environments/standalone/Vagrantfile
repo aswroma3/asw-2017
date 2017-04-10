@@ -25,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #
     config.vm.define "node" do |node|
         node.vm.hostname = "node"    
-        node.vm.network "private_network", ip: "10.11.1.211", virtualbox__intnet: true
+        node.vm.network "private_network", ip: "10.11.1.251", virtualbox__intnet: true
 
         node.vm.provider "virtualbox" do |v| 
             v.memory = 1024 
