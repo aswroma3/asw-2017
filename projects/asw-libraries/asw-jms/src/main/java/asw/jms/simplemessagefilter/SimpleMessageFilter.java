@@ -1,0 +1,18 @@
+package asw.jms.simplemessagefilter;
+
+/**
+ * SimpleMessageFilter.java
+ * 
+ * Definisce l'interfaccia di un oggetto/componente in grado
+ * di filtrare un messaggio di testo.
+ *
+ * @author Luca Cabibbo
+ */
+public interface SimpleMessageFilter {
+
+	/**
+	 * Filtra il messaggio di testo message.
+	 */
+	public String filterMessage(String message);
+
+}

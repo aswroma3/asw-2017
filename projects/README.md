@@ -97,7 +97,6 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-882-spring-boot](asw-882-spring-boot/): introduzione a *Spring Boot* 
 
-<!---
 ## Libreria 
 
 Questa sezione del repository contiene anche delle librerie usate 
@@ -106,4 +105,3 @@ da alcune di queste applicazioni.
 * [asw-libraries](asw-libraries/): il codice sorgente delle librerie
 
 * [libraries](libraries/): i file jar delle librerie  
--->
