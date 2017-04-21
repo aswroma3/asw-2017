@@ -3,14 +3,15 @@
 source "/home/vagrant/shared/scripts/common.sh"
 
 # set up Maven constants 
-MAVEN_VERSION=3.3.9
+MAVEN_VERSION=3.5.0
 
 MAVEN_ARCHIVE=apache-maven-${MAVEN_VERSION}-bin.zip
-# e.g., apache-maven-3.3.9-bin.zip
-APACHE_MIRROR=http://apache.panu.it
+# e.g., apache-maven-3.5.0-bin.zip
+# APACHE_MIRROR=http://apache.panu.it
+APACHE_MIRROR=http://it.apache.contactlab.it
 GET_MAVEN_URL=${APACHE_MIRROR}/maven/maven-3/${MAVEN_VERSION}/binaries 
 MAVEN_PATH=/usr/local/apache-maven-${MAVEN_VERSION} 
-# e.g. /usr/local/apache-maven-3.3.9
+# e.g. /usr/local/apache-maven-3.5.0
 
 function installLocalMaven {
 	echo "================="

@@ -3,13 +3,13 @@
 source "/home/vagrant/shared/scripts/common.sh"
 
 # set up Gradle constants 
-GRADLE_VERSION=3.4
+GRADLE_VERSION=3.5
 
 GRADLE_ARCHIVE=gradle-${GRADLE_VERSION}-bin.zip
-# e.g., gradle-3.4-bin.zip
+# e.g., gradle-3.5-bin.zip
 GET_GRADLE_URL=https://services.gradle.org/distributions
 GRADLE_PATH=/usr/local/gradle-${GRADLE_VERSION} 
-# e.g. /usr/local/gradle-3.4
+# e.g. /usr/local/gradle-3.5
 
 function installLocalGradle {
 	echo "================="
