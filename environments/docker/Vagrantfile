@@ -1,0 +1,74 @@
+# 
+# Vagrantfile per un singolo nodo (docker), su cui è installato Docker e Docker Compose.   
+# (Ci si può installare anche Java, Gradle e Maven). 
+# Basata su Ubunty Trusty (14.04 LTS), per Ubuntu Xenial (16.04 LTS) richiede qualche variante. 
+# 
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    # Configurazioni comuni.
+
+    # Ubuntu Trusty (14.04 LTS) 64 bit VirtualBox.
+    config.vm.box = "ubuntu/trusty64"
+    # config.vm.box_url = "http://files.vagrantup.com/ubuntu/trusty64.box"
+
+    # folder per i progetti Asw (/home/vagrant/projects)
+    config.vm.synced_folder "../../projects/", "/home/vagrant/projects", :mount_options => ["dmode=777", "fmode=777"]
+
+    # folder per le risorse condivise per gli ambienti Asw (/home/vagrant/shared/resources e /home/vagrant/shared/scripts) 
+    config.vm.synced_folder "../shared/", "/home/vagrant/shared", :mount_options => ["dmode=777", "fmode=777"]
+
+    # folder per i progetti docker Asw (/home/vagrant/docker)
+    # config.vm.synced_folder "../../docker/", "/home/vagrant/docker", :mount_options => ["dmode=777", "fmode=777"]
+
+    #
+    # Configurazione del nodo "docker", che prevede: 
+    # - Docker 
+	# - Docker Compose 
+    # - Java 
+    # - Gradle 
+	# - Maven 
+    #
+    config.vm.define "docker" do |node|
+        node.vm.hostname = "docker"    
+        node.vm.network "private_network", ip: "10.11.1.121", virtualbox__intnet: true
+
+        node.vm.provider "virtualbox" do |v| 
+			v.cpus = 2
+#			v.cpus = 4
+#            v.memory = 2048 
+            v.memory = 4096 
+#            v.memory = 8192 
+        end 
+
+        node.vm.network "forwarded_port", guest: 22, host: 2211, id: 'ssh', auto_correct: true
+        node.ssh.forward_agent = true
+        # node.ssh.forward_x11 = true
+ 
+		# 8080 -> 8081 per evitare conflitti sulla porta 8080 con altre vm  
+        node.vm.network "forwarded_port", guest: 8080, host: 8081, id: 'http', auto_correct: true
+
+        # provisioning con bash 
+        # node.vm.provision :shell, :inline => 'apt-get update'
+        # node.vm.provision :shell, :inline => 'apt-get install unzip'
+
+        # node.vm.provision :shell, path: "../shared/scripts/setup-java.sh"
+        # node.vm.provision :shell, path: "../shared/scripts/setup-gradle.sh"
+        # node.vm.provision :shell, path: "../shared/scripts/setup-maven.sh"
+
+		# installa docker e docker compose 
+        node.vm.provision :shell, path: "../shared/scripts/setup-docker.sh"
+        node.vm.provision :shell, path: "../shared/scripts/setup-docker-compose.sh"
+        
+		# si configura come client per il registry presso swarm.inf.uniroma3.it:5000 
+        node.vm.provision :shell, path: "../shared/scripts/setup-swarm-client.sh"
+
+        node.vm.provision :shell, 
+            inline: "echo  'configurazione nodo docker quasi completa'"
+        node.vm.provision :shell, 
+            inline: "echo  'per completare l'installazione e' necessario riavviare il nodo con il comando vagrant reload'" 
+
+    end
+
+end

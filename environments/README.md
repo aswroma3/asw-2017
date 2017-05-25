@@ -60,7 +60,9 @@ E' anche possibile:
 * [glassfish](glassfish/) 
   per l'esecuzione di applicazioni Java EE con l'application server *GlassFish*  
   
-<!---
 * [docker](docker/) 
   per la gestione e l'esecuzione di contenitori *Docker*  
+
+<!---
+  nulla da escludere, in questo momento 
 --> 
