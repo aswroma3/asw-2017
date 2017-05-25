@@ -11,8 +11,6 @@ ha il seguente software
 
 * Ubuntu Trusty (14.04 LTS) a 64 bit 
 
-* Oracle Java SDK 
-
 * Docker 
 
 * Docker Compose 
