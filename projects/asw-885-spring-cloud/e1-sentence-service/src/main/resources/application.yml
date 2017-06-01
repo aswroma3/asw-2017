@@ -1,0 +1,17 @@
+# application.yml 
+--- 
+spring: 
+  application: 
+    name: sentence
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8010/eureka/
+# leave eureka.instance.leaseRenewalIntervalInSeconds unchanged in production
+# just here to provide quicker updates to Eureka for demos
+  instance: 
+    leaseRenewalIntervalInSeconds: 5
+    metadataMap: 
+      instanceId: ${spring.application.name}:${random.value}
+server: 
+  port: ${PORT:${SERVER_PORT:0}}

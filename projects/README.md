@@ -97,6 +97,8 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-882-spring-boot](asw-882-spring-boot/): introduzione a *Spring Boot* 
 
+* [asw-885-spring-cloud](asw-885-spring-cloud/): introduzione a *Spring Cloud* 
+
 ## Libreria 
 
 Questa sezione del repository contiene anche delle librerie usate 

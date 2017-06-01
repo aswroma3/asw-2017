@@ -1,0 +1,39 @@
+# application.yml
+--- 
+spring: 
+  application: 
+    name: test
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8010/eureka/
+# leave eureka.instance.leaseRenewalIntervalInSeconds unchanged in production
+# just here to provide quicker updates to Eureka for demos
+  instance: 
+    leaseRenewalIntervalInSeconds: 5
+    metadataMap: 
+      instanceId: ${spring.application.name}:${random.value}
+server: 
+  port: ${PORT:${SERVER_PORT:0}}
+words: to,pass,the,test
+
+--- 
+spring: 
+  profiles: subject
+  application: 
+    name: subject
+words: He,She,Mary,John,Paul
+  
+--- 
+spring: 
+  profiles: verb
+  application: 
+    name: verb
+words: likes,loves,hates,dreams
+  
+--- 
+spring: 
+  profiles: object
+  application: 
+    name: object
+words: beans,cats,dogs,pasta,pizza,spring

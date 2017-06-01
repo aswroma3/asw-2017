@@ -1,0 +1,11 @@
+# application.yml 
+---
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/aswroma3/asw 
+          searchPaths: projects/config-data
+server:
+  port: 8001

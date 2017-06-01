@@ -1,0 +1,13 @@
+# application.yml 
+--- 
+spring: 
+  application: 
+    name: sentence
+eureka: 
+  client: 
+    serviceUrl: 
+      defaultZone: http://localhost:8010/eureka/
+server:
+  port: 8080
+zuul: 
+  prefix: /word
