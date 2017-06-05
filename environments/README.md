@@ -63,6 +63,9 @@ E' anche possibile:
 * [docker](docker/) 
   per la gestione e l'esecuzione di contenitori *Docker*  
 
+* [docker-swarm](docker-swarm/) 
+  per la gestione e l'esecuzione di un cluster (*swarm*) di nodi *Docker*  
+
 <!---
   nulla da escludere, in questo momento 
 --> 

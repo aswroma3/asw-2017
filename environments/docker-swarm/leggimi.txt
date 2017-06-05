@@ -1,0 +1,109 @@
+**********************************************************************
+* Istruzioni per la configurazione di uno swarm Docker (febbraio 2017)
+**********************************************************************
+
+https://docs.docker.com/engine/swarm/swarm-tutorial/
+http://blog.terranillius.com/post/composev3_swarm/
+
+Uso l''ambiente Vagrant docker-swarm, con tre nodi: 
+- swarm-1, 10.11.1.71 8080->8081 (manager e worker)
+- swarm-2, 10.11.1.72 8080->8082 (worker)
+- swarm-3, 10.11.1.73 8080->8083 (worker) 
+
+I nodi interagiscono mediante queste porte: 
+- TCP port 2375 for the remote API 
+- TCP port 2377 for cluster management communications
+- TCP and UDP port 7946 for communication among nodes
+- TCP and UDP port 4789 for overlay network traffic
+
+**********************************************************************
+* Prima versione (richiede l'accesso su ciascun nodo)
+**********************************************************************
+
+
+* su swarm-1
+
+echo "Creating swarm on swarm-1" 
+
+docker swarm init --advertise-addr 10.11.1.71
+
+= il comando swarm init restituisce qualcosa di questo tipo: 
+
+Swarm initialized: current node (e5z0ng8j4t0yex0dscnaq4jwi) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join \
+    --token SWMTKN-1-1po1tqtm6tl6h3p6m4mzwnu1uxkxkcujmshz2pwiyrweb4lyjz-0dpzfdw9qawkl9m7w7unch9yx \
+    10.11.1.71:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+= per conoscere come aggiungere un worker 
+docker swarm join-token worker
+
+* poi su swarm-2 e swarm-3 
+
+docker swarm join \
+    --token SWMTKN-1-1po1tqtm6tl6h3p6m4mzwnu1uxkxkcujmshz2pwiyrweb4lyjz-0dpzfdw9qawkl9m7w7unch9yx \
+    10.11.1.71:2377
+
+**********************************************************************
+* Seconda versione (richiede che su ciascun nodo sia abilitato l'accesso remoto)
+**********************************************************************
+
+
+* tutto su swarm-1
+
+echo "Creating swarm on swarm-1" 
+
+docker swarm init --advertise-addr 10.11.1.71
+
+SWARM_TOKEN=$(docker swarm join-token -q worker)
+SWARM_MASTER=$(docker info --format "{{.Swarm.NodeAddr}}")
+
+echo "Swarm master: ${SWARM_MASTER}"
+echo "Swarm token: ${SWARM_TOKEN}"
+
+echo "Adding swarm-2 and swarm-3" 
+
+docker --host 10.11.1.72:2375 swarm join --token ${SWARM_TOKEN} ${SWARM_MASTER}:2377
+docker --host 10.11.1.73:2375 swarm join --token ${SWARM_TOKEN} ${SWARM_MASTER}:2377
+
+
+= per informazioni 
+docker info 
+docker node ls
+
+
+**********************************************************************
+* Uso del cluster 
+**********************************************************************
+
+= per informazioni 
+docker info 
+docker node ls
+
+= per conoscere come aggiungere un worker 
+docker swarm join-token worker
+
+* vedi il tutorial 
+
+* per distruggere lo swarm: 
+
+sui nodi worker: 
+docker swarm leave 
+
+sul nodo manager: 
+docker swarm leave --force 
+
+= ulteriori questioni 
+
+posso far partire lo swarm dal nodo manager (aggiungendo anche gli altri nodi dal manager)? 
+
+
+**************************************
+* per eseguire l'applicazione sentence 
+**************************************
+
+vedi il file leggimi nella cartella del progetto sentence per docker  

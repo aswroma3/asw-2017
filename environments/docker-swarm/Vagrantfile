@@ -1,0 +1,70 @@
+# 
+# Vagrantfile per un cluaster (swarm) di nodi (docker), su cui è installato Docker e Docker Compose. 
+# Basata su Ubunty Trusty (14.04 LTS), per Ubuntu Xenial (16.04 LTS) richiede qualche variante. 
+# 
+
+VAGRANTFILE_API_VERSION = "2"
+
+$swarm_num_nodes = 3
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    # Configurazioni comuni.
+
+    # Ubuntu Trusty (14.04 LTS) 64 bit VirtualBox.
+    config.vm.box = "ubuntu/trusty64"
+    # config.vm.box_url = "http://files.vagrantup.com/ubuntu/trusty64.box"
+
+    # folder per i progetti Asw (/home/vagrant/projects)
+    config.vm.synced_folder "../../projects/", "/home/vagrant/projects", :mount_options => ["dmode=777", "fmode=777"]
+
+    # folder per le risorse condivise per gli ambienti Asw (/home/vagrant/shared/resources e /home/vagrant/shared/scripts) 
+    config.vm.synced_folder "../shared/", "/home/vagrant/shared", :mount_options => ["dmode=777", "fmode=777"]
+
+    # folder per i progetti docker Asw (/home/vagrant/docker)
+    # config.vm.synced_folder "../../docker/", "/home/vagrant/docker", :mount_options => ["dmode=777", "fmode=777"]
+
+    #
+    # Configurazione dei nodi "swarm-i", che prevedono: 
+    # - Docker 
+    # - Docker-compose 	
+    #
+    (1..$swarm_num_nodes).each do |i| 
+        config.vm.define vm_name = "swarm-%01d" % [i] do |node|
+			node.vm.hostname = vm_name    
+
+            ip = "10.11.1.#{70+i}"
+            node.vm.network "private_network", ip: ip, virtualbox__intnet: true
+#            node.vm.network "private_network", ip: ip, virtualbox__intnet: "docker-swarm-network"
+
+			node.vm.provider "virtualbox" do |v| 
+	            v.memory = 2048 
+				v.cpus = 2
+				v.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+			end 
+
+			node.vm.network "forwarded_port", guest: 22, host: 2211, id: 'ssh', auto_correct: true
+			node.ssh.forward_agent = true
+			# node.ssh.forward_x11 = true
+ 
+			# 8080 -> 808i per evitare conflitti sulla porta 8080 con altre vm (e.g., developer) 
+			node.vm.network "forwarded_port", guest: 8080, host: "#{8080+i}", id: 'http', auto_correct: true
+
+			# installa docker e docker compose 
+			node.vm.provision :shell, path: "../shared/scripts/setup-docker.sh"
+			node.vm.provision :shell, path: "../shared/scripts/setup-docker-compose.sh"
+			node.vm.provision :shell, path: "../shared/scripts/setup-swarm-hosts.sh"
+
+			config.vm.provision :shell, 
+				inline: "echo  'configurazione di questo nodo swarm quasi completa'"
+			config.vm.provision :shell, 
+				inline: "echo  'per completare l'installazione e' necessario riavviare il cluster con il comando vagrant reload'"
+			
+		end 
+    end
+
+	config.vm.provision :shell, 
+		inline: "echo  'configurazione del cluster swarm quasi completa'"
+	config.vm.provision :shell, 
+		inline: "echo  'per completare l'installazione e' necessario riavviare il cluster con il comando vagrant reload'"
+
+end
