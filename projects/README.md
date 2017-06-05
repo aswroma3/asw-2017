@@ -99,6 +99,9 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-885-spring-cloud](asw-885-spring-cloud/): introduzione a *Spring Cloud* 
 
+* [asw-655-docker-composizione](asw-655-docker-composizione/): composizione e orchestrazione di *contenitori Docker* 
+
+
 ## Libreria 
 
 Questa sezione del repository contiene anche delle librerie usate 

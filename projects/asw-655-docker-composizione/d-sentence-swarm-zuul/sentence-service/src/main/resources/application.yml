@@ -1,0 +1,8 @@
+# application.yml 
+--- 
+spring: 
+  application: 
+    name: sentence
+server: 
+#  port: ${PORT:${SERVER_PORT:0}}
+  port: 8080

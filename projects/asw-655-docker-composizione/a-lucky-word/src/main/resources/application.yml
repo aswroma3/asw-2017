@@ -1,0 +1,22 @@
+# application.yml 
+---
+# spring.profiles.active: english
+# oppure: export SPRING_PROFILES_ACTIVE=english 
+# default: 
+server: 
+  port: 8080 
+lucky: 
+  word: Default
+
+---
+spring: 
+  profiles: english 
+lucky: 
+  word: Happy
+
+---
+spring: 
+  profiles: italian 
+lucky: 
+  word: Evviva
+

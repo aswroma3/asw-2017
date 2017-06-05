@@ -1,0 +1,3 @@
+Da eseguire in uno swarm Docker. 
+Espone il servizio su localhost:8080 (index.html) e localhost:8080/sentence 
+Sull'host, potrebbe essere accessibile ad una porta diversa (vedere il port forwarding di vagrant) 

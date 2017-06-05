@@ -1,0 +1,6 @@
+Da eseguire in uno swarm Docker. 
+Espone il servizio su localhost:8080 (index.html) e localhost:8080/sentence 
+Sull'host, potrebbe essere accessibile ad una porta diversa (vedere il port forwarding di vagrant) 
+
+A differenza del progetto precedente (c, questo è d) NON usa Eureka, ma usa il "dns" di Swarm. 
+I client Feign referenziano i servizi con l'url, ad esempio object:8080. 

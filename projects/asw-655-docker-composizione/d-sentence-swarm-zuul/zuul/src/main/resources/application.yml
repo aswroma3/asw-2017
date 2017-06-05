@@ -1,0 +1,22 @@
+# application.yml 
+--- 
+spring: 
+  application: 
+    name: zuul
+server:
+  port: 8080
+zuul:
+  routes:
+    sentence:
+      path: /sentence/**
+      url: http://sentence:8080
+    subject:
+      path: /subject/**
+      url: http://subject:8080
+    verb:
+      path: /verb/**
+      url: http://verb:8080
+    object:
+      path: /object/**
+      url: http://object:8080
+

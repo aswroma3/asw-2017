@@ -1,0 +1,11 @@
+Da eseguire su una macchina con Docker. 
+Oppure da eseguire con Docker Compose. 
+
+Con Docker Compose, si avvia con 
+- docker-compose build
+- docker-compose up
+E si arresta con
+- docker-compose down 
+
+Espone il servizio su localhost:8080 (index.html) e localhost:8080/sentence 
+Sull'host, potrebbe essere accessibile ad una porta diversa (vedere il port forwarding di vagrant) 

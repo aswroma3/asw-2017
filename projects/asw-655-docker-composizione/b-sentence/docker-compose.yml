@@ -1,0 +1,50 @@
+version: '2'
+services:
+  eureka:
+    build: 
+      context: ./eureka-server
+    container_name: eureka 
+#    ports:
+#    - "8761:8761"
+  subject:
+    build: 
+      context: ./word-service
+#    ports: 
+#    - "8080"
+    depends_on:
+      - "eureka"
+    command: ["-jar", "-Dspring.profiles.active=subject", "word.jar"]
+  verb:
+    build: 
+      context: ./word-service
+#    ports: 
+#    - "8080"
+    depends_on:
+      - "eureka"
+    command: ["-jar", "-Dspring.profiles.active=verb", "word.jar"]
+  object:
+    build: 
+      context: ./word-service
+#    ports: 
+#    - "8080"
+    depends_on:
+      - "eureka"
+    command: ["-jar", "-Dspring.profiles.active=object", "word.jar"]
+  sentence:
+    build: 
+      context: ./sentence-service
+#    ports: 
+#    - "8080"
+    depends_on:
+      - "eureka"
+  zuul:
+    build: 
+      context: ./zuul
+    container_name: zuul 
+    ports:
+    - "8080:8080"
+
+
+
+
+
