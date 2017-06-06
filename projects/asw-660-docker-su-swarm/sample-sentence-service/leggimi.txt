@@ -1,0 +1,4 @@
+Applicazione multi-servizi e multi-contenitore da rilasciare sullo swarm docker swarm.inf.uniroma3.it. 
+
+Questa applicazione è accessibile al link http://swarm.inf.uniroma3.it:8080/
+
