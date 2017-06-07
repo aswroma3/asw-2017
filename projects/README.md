@@ -87,10 +87,12 @@ ed è descritta nell'ambito dei singoli progetti.
 
 * [asw-850-ejb](asw-850-ejb/): Componenti *Enterprise Java Bean* (*EJB*) 
 
-<!---
-* [asw-860-ws](asw-860-ws/): servizi web *SOAP* 
+* [asw-860-jax-ws](asw-860-jax-ws/): servizi web *SOAP* con *JAX-WS* 
 
-* [asw-870-rest](asw-870-rest/): servizi *REST* 
+* [asw-870-jax-rs](asw-870-jax-rs/): servizi *REST* con *JAX-RS* 
+
+<!---
+  niente da escludere 
 -->
 
 * [asw-880-spring](asw-880-spring/): introduzione al framework *Spring* 
