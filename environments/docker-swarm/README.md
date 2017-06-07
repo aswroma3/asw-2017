@@ -28,4 +28,4 @@ Configurazione di rete
  
 Dopo aver creato l'ambiente (`vagrant up`) e dopo averlo riavviato (`vagrant reload`), 
 è necessario collegarsi al nodo *swarm-1* (`vagrant ssh swarm-1`) 
-ed eseguire (una volta per tutte) lo script `setup-swarm-sh`. 
+ed eseguire (una volta per tutte) lo script `setup-swarm.sh`. 
