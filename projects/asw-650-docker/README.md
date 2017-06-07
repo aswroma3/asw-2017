@@ -9,9 +9,7 @@ In particolare, ci sono tre progetti Docker:
 
 * il contenitore **b-apache-http-server** per un server HTTP (che pubblica le pagine HTML nella cartella `~/docker/www` dell'host) 
 
-* il contenitore **b-apache-http-server** per un server HTTP (che pubblica le pagine HTML nella cartella `~/docker/www` dell'host) 
-
-* il contenitore **c-data-volume**, ìche gestisce un volume di pagine HTML da pubblicare con il server HTTP, alternativo al progetto precedente 
+* il contenitore **c-data-volume**, che gestisce un volume di pagine HTML da pubblicare con il server HTTP, alternativo al progetto precedente 
 
 ### Ambiente di esecuzione 
 
