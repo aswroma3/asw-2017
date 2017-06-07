@@ -8,6 +8,9 @@ echo "======================================"
 echo "configuring swarm.inf.uniroma3.it:5000"
 echo "======================================"
 
+# Appende 192.168.161.168 swarm.inf.uniroma3.it a /etc/hosts
+echo "192.168.161.168	swarm.inf.uniroma3.it" >> /etc/hosts 
+
 ### Istruzioni per Ubuntu 14.04: https://docs.docker.com/engine/admin/
 # appende '--insecure-registry swarm.inf.uniroma3.it:5000' come parametro di DOCKER_OPTS alla fine di /etc/default/docker
 sudo mv /etc/default/docker /etc/default/docker.bak 
